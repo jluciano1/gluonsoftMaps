@@ -45,16 +45,13 @@ $(document).ready(function () {
 			}
 		})
 	}
-	
-	$("#btnEndereco").click(function() {
-		if($(this).val() != "")
-			carregarNoMapa($("#txtEndereco").val());
-	})
-	
-	$("#txtEndereco").blur(function() {
-		if($(this).val() != "")
-			carregarNoMapa($(this).val());
-	})
+
+app.userEvents.fetchMap = function(event)()
+{
+  	if($(this).val() != "")
+			carregarNoMapa($(this.address).val());
+		return true;
+}
 	
 	google.maps.event.addListener(marker, 'drag', function () {
 		geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
