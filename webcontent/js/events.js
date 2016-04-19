@@ -45,8 +45,7 @@ app.userEvents.loadMap = function(endereco)  {
   initialize();
 	geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-		  console.log("passou aqui");
-			if (results[0]) {
+		  if (results[0]) {
 				var latitude = results[0].geometry.location.lat();
 				var longitude = results[0].geometry.location.lng();
 				var location = new google.maps.LatLng(latitude, longitude);
