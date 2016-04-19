@@ -2,15 +2,16 @@
 <script type="text/javascript" src="js/mapa.js"></script> 
 <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script> 
 
-<div data-container="true" id="starter" draggable="true" class=""> 
+<div data-container="true" id="starter" draggable="true" class="" ng-init="fetchMap()"> 
   <div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-281957"> 
     <div class="form-group"> 
       <label for="exampleInputEmail1" class="">Endereço</label> 
-      <input type="text" ng-model="address" class="form-control" id="textinput-id" placeholder="Endereço" ng-click="fetchMap($event)" ng-blur="fetchMap($event)"> 
+      <input type="text" ng-model="address" class="form-control" id="textinput-id" placeholder="Endereço" ng-click="fetchMap()" ng-blur="fetchMap()" ng-keyup="autocomplete()"> 
+      <input ng-keyup="event=$event">
     </div> 
   </div> 
   <div class="component-holder ng-binding ng-scope" data-component="crn-button" id="crn-button-970467"> 
-    <button class="btn btn-default" type="submit" ng-click="">Pesquisar</button> 
+    <button class="btn btn-default" type="submit" ng-click="fetchMap($event)">Pesquisar</button> 
   </div>
 </div> 
 
